@@ -13,6 +13,21 @@ extension TemperatureUnitsX on TemperatureUnits {
 }
 
 @JsonSerializable()
+class Temperature extends Equatable {
+  const Temperature({required this.value});
+
+  factory Temperature.fromJson(Map<String, dynamic> json) =>
+      _$TemperatureFromJson(json);
+
+  final double value;
+
+  Map<String, dynamic> toJson() => _$TemperatureToJson(this);
+
+  @override
+  List<Object> get props => [value];
+}
+
+@JsonSerializable()
 class Weather extends Equatable {
   const Weather ({
     required this.condition,
