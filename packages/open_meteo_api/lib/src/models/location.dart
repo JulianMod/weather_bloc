@@ -1,4 +1,4 @@
-part 'location.g.dart'
+part 'location.g.dart';
 
 @JsonSerializable
 class Location {
