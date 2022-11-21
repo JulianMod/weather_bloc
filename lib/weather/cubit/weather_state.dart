@@ -1,8 +1,5 @@
 part of 'weather_cubit.dart';
 
-import 'package:equatable/equatable.dart';
-import 'package:weather_bloc/weather/models/models.dart';
-
 enum WeatherStatus { initial, loading, success, failure}
 
 extension WeatherStatusX on WeatherStatus {
