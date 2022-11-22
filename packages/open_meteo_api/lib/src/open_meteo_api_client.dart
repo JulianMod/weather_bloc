@@ -17,7 +17,7 @@ class OpenMeteoApiClient {
       :_httpClient = httpClient ?? http.Client();
 
   static const _baseUrlWeather = 'api.open-meteo.com';
-  static const _baseUrlGeocoding = 'geocoding_api.open-meteo.com';
+  static const _baseUrlGeocoding = 'geocoding-api.open-meteo.com';
 
   final http.Client _httpClient;
 
