@@ -1,22 +1,15 @@
-import 'dart:math';
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:weather_bloc/search/view/search_page.dart';
-import 'package:weather_bloc/settings/view/settings.dart';
+import 'package:weather_bloc/settings/settings.dart';
 import 'package:weather_bloc/theme/cubit/theme_cubit.dart';
-import 'package:weather_bloc/weather/cubit/weather_cubit.dart';
-import 'package:weather_bloc/weather/models/models.dart';
-import 'package:weather_bloc/weather/view/weather_page.dart';
-import 'package:weather_bloc/weather/widgets/weather_empty.dart';
-import 'package:weather_bloc/weather/widgets/weather_loading.dart';
-import 'package:weather_bloc/weather/widgets/weather_populated.dart';
-import 'package:weather_repository/weather_repository.dart';
+import 'package:weather_bloc/weather/weather.dart';
+import 'package:weather_repository/weather_repository.dart' hide Weather;
 
-import '../../theme/weather/cubit/weather_cubit_test.dart';
+import '../../helpers/hydrated_bloc.dart';
 
 class MockWeatherRepository extends Mock implements WeatherRepository {}
 
@@ -42,7 +35,7 @@ void main() {
             child: MaterialApp(home: WeatherPage()),
           )
       );
-      expect(find.byType(WeatherView), findsOneWidget)
+      expect(find.byType(WeatherView), findsOneWidget);
     });
   });
 
@@ -70,7 +63,7 @@ void main() {
               child: MaterialApp(home: WeatherView(),),
             ),
           );
-          expect(find.byType(WeatherEmpty()), findsOneWidget)
+          expect(find.byType(WeatherEmpty), findsOneWidget);
         });
 
     testWidgets('renders WeatherLoading for WeatherStatus.loading',
@@ -119,7 +112,7 @@ void main() {
                 child: MaterialApp(home: WeatherView()),
               )
           );
-          expect(find.byType(WeatherError), findsOneWidget)
+          expect(find.byType(WeatherError), findsOneWidget);
         });
 
     testWidgets('state is cached', (tester) async {
@@ -136,7 +129,7 @@ void main() {
           child: MaterialApp(home: WeatherView()),
         ),
       );
-      expect(find.byType(WeatherPopulated()), findsOneWidget)
+      expect(find.byType(WeatherPopulated), findsOneWidget);
     });
 
     testWidgets('navigates to SettingsPage when settings icon is tapped',
@@ -150,7 +143,7 @@ void main() {
           );
           await tester.tap(find.byType(IconButton));
           await tester.pumpAndSettle();
-          expect(find.byType(SettingsPage), findsOneWidget)
+          expect(find.byType(SettingsPage), findsOneWidget);
         });
 
     testWidgets('navigates to SearchPage when search button is tapped',
@@ -213,7 +206,7 @@ void main() {
             1000,
           );
           await tester.pumpAndSettle();
-          verify(() => weatherCubit.refreshWeather()).called(1)
+          verify(() => weatherCubit.refreshWeather()).called(1);
         });
 
     testWidgets('triggers fetch on search pop', (tester) async {

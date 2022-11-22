@@ -43,7 +43,7 @@ void main() {
       
       test('throws when locationSearch fails', () async {
         final exception = Exception('oops');
-        when(() => weatherApiClient.locationSearch(any())).thenThrow(exception)
+        when(() => weatherApiClient.locationSearch(any())).thenThrow(exception);
         expect(
             () async => weatherRepository.getWeather(city),
             throwsA(exception),
@@ -219,6 +219,6 @@ void main() {
                 condition: WeatherCondition.unknown
             ));
       });
-    })
-  })
+    });
+  });
 }

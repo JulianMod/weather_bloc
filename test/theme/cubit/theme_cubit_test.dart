@@ -21,7 +21,7 @@ void main() {
 
   group('ThemeCubit', () {
     test('initial state is correct', () {
-      expect(ThemeCubit().state, ThemeCubit.defaultColor)
+      expect(ThemeCubit().state, ThemeCubit.defaultColor);
     });
 
     group('toJson/fromJson', () {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_bloc/weather/weather.dart';
+
 class WeatherPopulated extends StatelessWidget {
   const WeatherPopulated({
     Key? key,
@@ -26,7 +27,7 @@ class WeatherPopulated extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: [
-                    const SizedBox(height: 48,)
+                    const SizedBox(height: 48,),
                     _WeatherIcon(condition: weather.condition),
                     Text(
                       weather.location,
@@ -53,7 +54,7 @@ class WeatherPopulated extends StatelessWidget {
 }
 
 class _WeatherIcon extends StatelessWidget {
-  const _WeatherIcon({Key? key}, required this.condition) : super(key: key);
+  const _WeatherIcon({Key? key, required this.condition}) : super(key: key);
 
   static const _iconSize = 75.0;
 
@@ -62,7 +63,7 @@ class _WeatherIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      condtion.toEmoji,
+      condition.toEmoji,
       style: const TextStyle(fontSize: _iconSize),
     );
   }

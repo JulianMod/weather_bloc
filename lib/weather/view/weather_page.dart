@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_bloc/search/search.dart';
+import 'package:weather_bloc/settings/settings.dart';
 import 'package:weather_bloc/theme/cubit/theme_cubit.dart';
-import 'package:weather_bloc/weather/cubit/weather_cubit.dart';
+import 'package:weather_bloc/weather/weather.dart';
 import 'package:weather_repository/weather_repository.dart';
+
 
 class WeatherPage extends StatelessWidget {
   const WeatherPage({Key? key}) : super(key: key);
@@ -54,7 +57,7 @@ class _WeatherViewState extends State<WeatherView> {
                 return const WeatherEmpty();
               case WeatherStatus.loading:
                 return const WeatherLoading();
-                case WeatherStatus.success
+              case WeatherStatus.success:
                 return WeatherPopulated(
                   weather: state.weather,
                   units: state.temperatureUnits,

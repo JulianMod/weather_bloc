@@ -14,6 +14,10 @@ class WeatherRepository {
     final weather = await _weatherApiClient.getWeather(
         latitude: location.latitude,
         longitude: location.longitude);
+    return Weather(
+        location: location.name,
+        temperature: weather.temperature,
+        condition: weather.weatherCode.toInt().toCondition);
   }
 }
 

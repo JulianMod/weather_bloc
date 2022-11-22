@@ -7,7 +7,7 @@ import 'package:weather_bloc/weather/weather.dart';
 import 'package:weather_repository/weather_repository.dart'
 as weather_repository;
 
-import '../../helpers/hydrated_bloc.dart';
+import '../../../helpers/hydrated_bloc.dart';
 
 const weatherLocation = 'London';
 const weatherCondition = weather_repository.WeatherCondition.rainy;

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_bloc/theme/cubit/theme_cubit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_bloc/theme/theme.dart';
+import 'package:weather_bloc/weather/weather.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 class WeatherApp extends StatelessWidget {
-  const WeatherApp({Key? key, required WeatherRepository weatherRepository}) : super(key: key);
+  const WeatherApp({super.key, required WeatherRepository weatherRepository})
+      : _weatherRepository = weatherRepository;
 
   final WeatherRepository _weatherRepository;
 
